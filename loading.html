@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="loading.css">
+    <title>Welcome</title>
+</head>
+<body>
+    <div class="animation-container">
+        <div class="center">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+          </div>
+        <button id="enter-button"></button>
+    </div>
+    
+    <script>
+        // JavaScript for the typing animation
+        const enterButton = document.getElementById("enter-button");
+
+        enterButton.style.display = "none"; // Hide the button initially
+
+        // Function to create a typing animation for the "Enter" text
+        function typeEnterText() {
+            const text = "Enter";
+            let index = 0;
+            const interval = 200; // Time between typing each character (in milliseconds)
+
+            function typeNextCharacter() {
+                if (index < text.length) {
+                    enterButton.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(typeNextCharacter, interval);
+                }
+            }
+
+            setTimeout(typeNextCharacter, interval);
+        }
+
+        // Trigger the typing animation after a delay (e.g., 2 seconds)
+        setTimeout(() => {
+            enterButton.style.display = "inline-block"; // Show the button
+            typeEnterText();
+        }, 2000);
+        // Add JavaScript to handle the button click event
+        document.getElementById("enter-button").addEventListener("click", function() {
+            // Redirect to your main HTML file
+            window.location.href = "aninohtml.html";
+        });
+    </script>
+</body>
+</html>
